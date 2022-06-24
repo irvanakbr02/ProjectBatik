@@ -1,0 +1,5 @@
+Untuk Tools Pendukung
+- Visual Code Studio (deploy web + web service)
+- Google Colaboratory (create model using resnet50v2)
+- MongoDb (database)
+- AndroidStudio (create app)

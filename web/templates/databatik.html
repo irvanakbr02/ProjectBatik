@@ -1,0 +1,62 @@
+{% extends 'includes/include.html' %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="../../static/css/dataset.css">
+</head>
+{% include "includes/sidebar.html" %}
+
+<div class="container">
+    <div class="daftarBunga">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                    aria-hidden="true">×</span></button>
+            {{message}}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="d-flex" style="justify-content: space-between">
+           <!--<a href="/tambahData" >
+                <button type="submit" class="btn " style="background-color: #98ef56;">Tambah Data</button>
+            </a>-->
+           
+        </div>
+        <h3 style="color:#333;margin-top:40px;font-weight:500; ">Daftar Batik</h3>
+        <table style="margin-top:20px;" class="table table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th width="25%">Nama Batik</th>
+                    <th width="25%">Asal Batik</th>
+                    <th width="25%">Ciri</th>
+                    <th width="25%">Filosofi Batik</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in databatik %}
+                <tr>
+                    <td>{{data.nama}}</td>
+                    <td>{{data.asal}}</td>
+                    <td>{{data.ciri}}</td>
+                    <td>{{data.filosofi}}</td>
+                    
+                    <!-- <td width="100">
+                        <div class="d-flex" style="justify-content: space-between">
+                            <a href="/editBunga/{{data.nama}}" style="margin-right:32px">
+                                <i style="font-size:16px" class="fa fa-edit text-warning" aria-hidden="true"></i></a>
+                            <a href="/hapusBunga/{{data.nama}}">
+                                <i style="font-size:16px" class="fa fa-trash text-danger" aria-hidden="true"></i></a>
+                        </div>
+                    </td> -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
